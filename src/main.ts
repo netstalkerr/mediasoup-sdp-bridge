@@ -84,12 +84,6 @@ export class SdpEndpoint {
         // Skip media for which the direction is unknown.
         continue;
       }
-      if (media.direction !== "sendonly") {
-        // Skip media which is not "sendonly", because this is a receive-only
-        // SDP endpoint for remote SDP Offers.
-        // FIXME: A proper SDP endpoint should be able to handle all directions.
-        continue;
-      }
 
       // Add a new Producer for the given media.
       const sendParams = SdpUtils.sdpToSendRtpParameters(
